@@ -27,12 +27,11 @@ int main(void)
 
   int blockSize = 256;
   int numBlocks = (N + blockSize - 1) / blockSize;
-  add<<<numBlocks, blockSize>>>(N, x, y);
 
   //std::cout << " Block number : " << numBlocks << " " << std::endl;
 
   // Run kernel on 1M elements on the GPU
-  add<<<1, 256>>>(N, x, y);
+  add<<<numBlocks, blockSize>>>(N, x, y);
 
   // Wait for GPU to finish before accessing on host
   cudaDeviceSynchronize();
