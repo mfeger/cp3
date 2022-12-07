@@ -29,7 +29,7 @@ int main(void)
   int numBlocks = (N + blockSize - 1) / blockSize;
   add<<<numBlocks, blockSize>>>(N, x, y);
 
-  std::cout << " Block number : " << numBlocks << " " << std::endl;
+  //std::cout << " Block number : " << numBlocks << " " << std::endl;
 
   // Run kernel on 1M elements on the GPU
   add<<<1, 256>>>(N, x, y);
